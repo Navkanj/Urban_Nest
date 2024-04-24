@@ -19,7 +19,6 @@ const Register = () => {
             ...formData,
             [name]: value
         });
-        // Clear error message when user starts typing in a field
         setErrors({
             ...errors,
             [name]: ''
@@ -29,7 +28,6 @@ const Register = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Basic form validation
         const newErrors = {};
         if (!formData.name.trim()) {
             newErrors.name = 'Name is required';
@@ -50,12 +48,9 @@ const Register = () => {
             newErrors.c_pass = 'Passwords do not match';
         }
 
-        // Set errors object based on validation result
+        
         setErrors(newErrors);
-
-        // If no errors, you can proceed with other actions (e.g., API call)
         if (Object.keys(newErrors).length === 0) {
-            // Here you can handle form submission (e.g., send data to backend)
             console.log('Form submitted:', formData);
             window.location.href = '/login';
             setFormData({
